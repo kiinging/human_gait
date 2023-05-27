@@ -1,27 +1,59 @@
-# Introduction
+Resources:
+1. ESP32 and IMU: https://github.com/tuupola/micropython-mpu9250 
+2. Calibration: https://github.com/michaelwro/accelerometer-calibration
+2. Madgwick: https://github.com/micropython-IMU/micropython-fusion
+2. Bluetooth:
+
+# Sensor Fusion and Dashboard System using ESP32 and IMU
+I copied from https://github.com/nagyf/mpu9250-visualization
 This python application can be used to process the data read by [mpu9250-arduino](https://github.com/nagyf/mpu9250-arduino) and display the sensor data using [matplotlib](https://matplotlib.org/).
 
-# Install dependencies
 
-Make sure you have the following installed:
+## Table of Contents
+1. [Sensor Design](#sensor-design)  
+        1.1 [Calibration](#calibration)  
+2. [Bluetooth Setup](#sensor-algorithm)        
+        2.1. [Installation Dependencies](#installation-dependencies)    
+        2.2 [Running the Application](#running-the-application)
 
-- python 3.x
-- virtualenv
+## Sensor Design
+Description and details of the circuit diagram.
+![](./image/1_0_circuit.png)
+![](./image/1_1_sensor.png)
+
+## Calibration
+The magentometer, gyro and accelerometer require calibration.
+
+|          | Magnetometer | Gyro | Accelerometer |
+| -------- | -------- | -------- | -------- |
+| Time required to calibrate the sensor   | About 20 seconds   | About 2 seconds   | Difficult. May takes more than 1 hour   |
+| Frequency of calibration   | require to calibrate at new location   | Every measurement   | One time only  |
+| Methods of calibration   | Move in circle in three axis | put flat on table  | Measure all three axis without moving it (and measure all three axis with respect to gravity)  |
+
+Before and After calibration.
+Magnetometer           |  Accelerometer
+:-------------------------:|:-------------------------:
+![](./image/1_2_Mag_X_Y.png)  |  ![](./image/1_3_Accel_X_Y.png)
+![](./image/1_2_Mag_X_Z.png)  |  ![](./image/1_3_Accel_X_Z.png)
+![](./image/1_2_Mag_Y_Z.png)  |  ![](./image/1_3_Accel_Y_Z.png)
+
+
+## Installation Dependencies
 
 Execute these commands to run the application:
 ```
-> virtualenv env
-> venv\Scripts\activate.bat
+> python -m venv myenv
+> \myenv\Scripts\activate
 > pip install -r requirements.txt
 ```
 
 ```
-> venv\Scripts\deactivate.bat
+> myenv\Scripts\deactivate.bat
 ```
-# Run the application
+## Running the Application
 
 The command is: `python main.py -d <device_id> -b <data_rate> -o <test_csv_file>`
-                `python main.py -d COM10 -b 115200 -o text_29-4-2023.cvs`
+                `python main.py -d COM10 -b 115200 -o text_20-5-2023.cvs`
         Noting that you need to go to Thonny and check what <device_id> is it.
                
 
@@ -31,15 +63,3 @@ Where:
 - `baud_rate` is the data rate used to communicate on the serial port
 - `test_csv_file` is the filename of a file to write data to (this parameter is optional).
 
-Examples:
-
-```
-# Basic example
-> python main.py -d /dev/cu.usbmodem14411
-
-# Specify different data rate (the default is 115200)
-> python main.py -d /dev/cu.usbmodem14411 -b 9600
-
-# Specify an output file
-> python main.py -d /dev/cu.usbmodem14411 -o data.csv
-```
