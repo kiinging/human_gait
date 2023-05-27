@@ -10,7 +10,7 @@ Resources:
 ## Table of Contents
 1. [Sensor Design](#sensor-design)  
         1.1 [Calibration](#calibration)  
-2. [Bluetooth Setup](#sensor-algorithm)        
+2. [Bluetooth Setup](#bluetooth-setup)        
         2.1. [Installation Dependencies](#installation-dependencies)    
         2.2 [Running the Application](#running-the-application)
 
