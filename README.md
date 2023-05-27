@@ -9,10 +9,12 @@ Resources:
 
 ## Table of Contents
 1. [Sensor Design](#sensor-design)  
-        1.1 [Calibration](#calibration)  
-2. [Bluetooth Setup](#bluetooth-setup)        
-        2.1. [Installation Dependencies](#installation-dependencies)    
-        2.2 [Running the Application](#running-the-application)
+        1.1 [Calibration](#calibration) 
+2. [Sensor software](#sensor-software)  
+        2.1. [Bluetooth](#bluetooth)
+3. [PC Visualization](#pc-visualization)        
+        3.1. [Installation Dependencies](#installation-dependencies)    
+        3.2 [Running the Application](#running-the-application)
 
 ## Sensor Design
 Description and details of the circuit diagram.
@@ -35,7 +37,13 @@ Magnetometer           |  Accelerometer
 ![](./image/1_2_Mag_X_Z.png)  |  ![](./image/1_3_Accel_X_Z.png)
 ![](./image/1_2_Mag_Y_Z.png)  |  ![](./image/1_3_Accel_Y_Z.png)
 
-## Bluetooth Setup
+## Sensor Software
+The simplest setup involves using an ESP32 connected to a PC via USB. The gait sensor sends data to the ESP32 using Bluetooth.
+
+-`sensor` folder consisted the software for the gait sensor.
+-`receiver`folder consisted the software to receive the bluetooth data and send to PC.
+
+## PC Visualization
 ## Installation Dependencies
 
 Execute these commands to run the application:
