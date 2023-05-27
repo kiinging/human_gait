@@ -1,13 +1,11 @@
 Resources:
 1. ESP32 and IMU: https://github.com/tuupola/micropython-mpu9250 
 2. Calibration: https://github.com/michaelwro/accelerometer-calibration
-2. Madgwick: https://github.com/micropython-IMU/micropython-fusion
-2. Bluetooth:
+3. Madgwick: https://github.com/micropython-IMU/micropython-fusion
+4. PC visualization: https://github.com/nagyf/mpu9250-visualization 
+                   : https://github.com/nagyf/mpu9250-arduino 
 
 # Sensor Fusion and Dashboard System using ESP32 and IMU
-I copied from https://github.com/nagyf/mpu9250-visualization
-This python application can be used to process the data read by [mpu9250-arduino](https://github.com/nagyf/mpu9250-arduino) and display the sensor data using [matplotlib](https://matplotlib.org/).
-
 
 ## Table of Contents
 1. [Sensor Design](#sensor-design)  
@@ -37,7 +35,7 @@ Magnetometer           |  Accelerometer
 ![](./image/1_2_Mag_X_Z.png)  |  ![](./image/1_3_Accel_X_Z.png)
 ![](./image/1_2_Mag_Y_Z.png)  |  ![](./image/1_3_Accel_Y_Z.png)
 
-
+## Bluetooth Setup
 ## Installation Dependencies
 
 Execute these commands to run the application:
